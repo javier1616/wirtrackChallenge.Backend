@@ -98,12 +98,48 @@ namespace Wirtrack.Controllers
             }
         }
 
+        [HttpPut]
+        public async Task<IActionResult> UpdateWeatherContidions()
+        {
+            try
+            {
+                var flag = await _service.UpdateWeatherConditions();
+                return Ok(true);
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
+            }
+        }
+
         [HttpGet("id")]
         public async Task<IActionResult> GetCityById([FromQuery(Name = "id")] int id)
         {
             try
             {
                 var test = await _service.GetById(id);
+
+                if (test != null)
+                {
+                    return Ok(test);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
+            }
+        }
+
+        [HttpGet("weather")]
+        public async Task<IActionResult> GetCityWeatherById([FromQuery(Name = "id")] int id)
+        {
+            try
+            {
+                var test = await _service.GetByIdWithWeather(id);
 
                 if (test != null)
                 {

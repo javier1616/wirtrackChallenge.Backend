@@ -13,6 +13,7 @@ namespace Wirtrack.Application.Services
     {
         private readonly IGenericsRepository _repository;
         private readonly ITripsQueries _tripsQueries;
+        
 
         public TripsServices(IGenericsRepository repository, ITripsQueries tripsQueries)
         {
@@ -80,5 +81,6 @@ namespace Wirtrack.Application.Services
 
             return trips;
         }
+
     }
 }

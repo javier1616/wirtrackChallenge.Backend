@@ -36,6 +36,7 @@ namespace Wirtrack.API
             services.AddTransient<ICitiesServices, CitiesServices>();
             services.AddTransient<ICitiesQueries, CitiesQueries>();
             services.AddTransient<ITripsQueries, TripsQueries>();
+            services.AddTransient<IOpenWeathermapServices, OpenWeathermapServices>();
 
             services.AddCors(c => c.AddDefaultPolicy(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
 

@@ -12,5 +12,7 @@ namespace Wirtrack.Domain.Entities
 
         public string CountryCode { get; set; }
 
+        public string WeatherCondition { get; set; }
+
     }
 }

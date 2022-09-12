@@ -41,6 +41,9 @@ namespace Wirtrack.AccessData.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("WeatherCondition")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Cities");
@@ -51,7 +54,7 @@ namespace Wirtrack.AccessData.Migrations
                             Id = 1,
                             CountryCode = "AR",
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(7326),
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(2367),
                             Name = "Palermo"
                         },
                         new
@@ -59,7 +62,7 @@ namespace Wirtrack.AccessData.Migrations
                             Id = 2,
                             CountryCode = "AR",
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(7382),
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(2585),
                             Name = "Belgrano"
                         },
                         new
@@ -67,7 +70,7 @@ namespace Wirtrack.AccessData.Migrations
                             Id = 3,
                             CountryCode = "AR",
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(7385),
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(2588),
                             Name = "Balvanera"
                         },
                         new
@@ -75,7 +78,7 @@ namespace Wirtrack.AccessData.Migrations
                             Id = 4,
                             CountryCode = "AR",
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(7387),
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(2590),
                             Name = "Retiro"
                         },
                         new
@@ -83,7 +86,7 @@ namespace Wirtrack.AccessData.Migrations
                             Id = 5,
                             CountryCode = "AR",
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(7390),
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(2592),
                             Name = "Avellaneda"
                         },
                         new
@@ -91,7 +94,7 @@ namespace Wirtrack.AccessData.Migrations
                             Id = 6,
                             CountryCode = "AR",
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(7392),
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(2595),
                             Name = "Quilmes"
                         },
                         new
@@ -99,7 +102,7 @@ namespace Wirtrack.AccessData.Migrations
                             Id = 7,
                             CountryCode = "AR",
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(7395),
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(2597),
                             Name = "Berazategui"
                         });
                 });
@@ -146,7 +149,7 @@ namespace Wirtrack.AccessData.Migrations
                             IdStatus = 1,
                             IdVehicle = 1,
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(9211)
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(8454)
                         },
                         new
                         {
@@ -156,7 +159,7 @@ namespace Wirtrack.AccessData.Migrations
                             IdStatus = 1,
                             IdVehicle = 2,
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(9278)
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(8610)
                         },
                         new
                         {
@@ -166,7 +169,7 @@ namespace Wirtrack.AccessData.Migrations
                             IdStatus = 1,
                             IdVehicle = 2,
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(9281)
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(8615)
                         },
                         new
                         {
@@ -176,7 +179,7 @@ namespace Wirtrack.AccessData.Migrations
                             IdStatus = 1,
                             IdVehicle = 3,
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(9284)
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(8618)
                         },
                         new
                         {
@@ -186,7 +189,7 @@ namespace Wirtrack.AccessData.Migrations
                             IdStatus = 1,
                             IdVehicle = 3,
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(9287)
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(8622)
                         },
                         new
                         {
@@ -196,7 +199,7 @@ namespace Wirtrack.AccessData.Migrations
                             IdStatus = 1,
                             IdVehicle = 2,
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(9290)
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(8625)
                         },
                         new
                         {
@@ -206,7 +209,7 @@ namespace Wirtrack.AccessData.Migrations
                             IdStatus = 1,
                             IdVehicle = 1,
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(9293)
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(8629)
                         });
                 });
 
@@ -247,7 +250,7 @@ namespace Wirtrack.AccessData.Migrations
                             Id = 1,
                             CarLicense = "AAA000",
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 465, DateTimeKind.Utc).AddTicks(3376),
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 741, DateTimeKind.Utc).AddTicks(7263),
                             Model = "Peugeot 208",
                             Type = "car"
                         },
@@ -256,7 +259,7 @@ namespace Wirtrack.AccessData.Migrations
                             Id = 2,
                             CarLicense = "AAA001",
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 465, DateTimeKind.Utc).AddTicks(3760),
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 741, DateTimeKind.Utc).AddTicks(7693),
                             Model = "Mercedes Benz",
                             Type = "truck"
                         },
@@ -265,7 +268,7 @@ namespace Wirtrack.AccessData.Migrations
                             Id = 3,
                             CarLicense = "AAA002",
                             IsDeleted = false,
-                            LastModified = new DateTime(2022, 9, 11, 14, 1, 12, 465, DateTimeKind.Utc).AddTicks(3770),
+                            LastModified = new DateTime(2022, 9, 12, 15, 0, 8, 741, DateTimeKind.Utc).AddTicks(7708),
                             Model = "Honda CG 125",
                             Type = "motorcycle"
                         });
