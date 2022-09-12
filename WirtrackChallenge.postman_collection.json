@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "1f1a1136-a17b-4395-875c-2e3f0720f059",
+		"name": "WirtrackChallenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetTrips",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44385/api/trips",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"trips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTripsJoin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44385/api/trips/join",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"trips",
+						"join"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCities",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44385/api/cities",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"cities"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
