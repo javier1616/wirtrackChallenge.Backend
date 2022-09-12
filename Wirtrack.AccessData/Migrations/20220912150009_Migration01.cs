@@ -15,6 +15,7 @@ namespace Wirtrack.AccessData.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     CountryCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    WeatherCondition = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastModified = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -72,16 +73,16 @@ namespace Wirtrack.AccessData.Migrations
 
             migrationBuilder.InsertData(
                 table: "Cities",
-                columns: new[] { "Id", "CountryCode", "IsDeleted", "LastModified", "Name" },
+                columns: new[] { "Id", "CountryCode", "IsDeleted", "LastModified", "Name", "WeatherCondition" },
                 values: new object[,]
                 {
-                    { 1, "AR", false, new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(7326), "Palermo" },
-                    { 2, "AR", false, new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(7382), "Belgrano" },
-                    { 3, "AR", false, new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(7385), "Balvanera" },
-                    { 4, "AR", false, new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(7387), "Retiro" },
-                    { 5, "AR", false, new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(7390), "Avellaneda" },
-                    { 6, "AR", false, new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(7392), "Quilmes" },
-                    { 7, "AR", false, new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(7395), "Berazategui" }
+                    { 1, "AR", false, new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(2367), "Palermo", null },
+                    { 2, "AR", false, new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(2585), "Belgrano", null },
+                    { 3, "AR", false, new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(2588), "Balvanera", null },
+                    { 4, "AR", false, new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(2590), "Retiro", null },
+                    { 5, "AR", false, new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(2592), "Avellaneda", null },
+                    { 6, "AR", false, new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(2595), "Quilmes", null },
+                    { 7, "AR", false, new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(2597), "Berazategui", null }
                 });
 
             migrationBuilder.InsertData(
@@ -89,9 +90,9 @@ namespace Wirtrack.AccessData.Migrations
                 columns: new[] { "Id", "CarLicense", "IsDeleted", "LastModified", "Model", "Type" },
                 values: new object[,]
                 {
-                    { 1, "AAA000", false, new DateTime(2022, 9, 11, 14, 1, 12, 465, DateTimeKind.Utc).AddTicks(3376), "Peugeot 208", "car" },
-                    { 2, "AAA001", false, new DateTime(2022, 9, 11, 14, 1, 12, 465, DateTimeKind.Utc).AddTicks(3760), "Mercedes Benz", "truck" },
-                    { 3, "AAA002", false, new DateTime(2022, 9, 11, 14, 1, 12, 465, DateTimeKind.Utc).AddTicks(3770), "Honda CG 125", "motorcycle" }
+                    { 1, "AAA000", false, new DateTime(2022, 9, 12, 15, 0, 8, 741, DateTimeKind.Utc).AddTicks(7263), "Peugeot 208", "car" },
+                    { 2, "AAA001", false, new DateTime(2022, 9, 12, 15, 0, 8, 741, DateTimeKind.Utc).AddTicks(7693), "Mercedes Benz", "truck" },
+                    { 3, "AAA002", false, new DateTime(2022, 9, 12, 15, 0, 8, 741, DateTimeKind.Utc).AddTicks(7708), "Honda CG 125", "motorcycle" }
                 });
 
             migrationBuilder.InsertData(
@@ -99,13 +100,13 @@ namespace Wirtrack.AccessData.Migrations
                 columns: new[] { "Id", "DateTrip", "IdDestinationCity", "IdStatus", "IdVehicle", "IsDeleted", "LastModified" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 9, 13, 10, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, 1, false, new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(9211) },
-                    { 7, new DateTime(2022, 9, 19, 10, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, 1, false, new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(9293) },
-                    { 2, new DateTime(2022, 9, 14, 10, 0, 0, 0, DateTimeKind.Unspecified), 3, 1, 2, false, new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(9278) },
-                    { 3, new DateTime(2022, 9, 15, 10, 0, 0, 0, DateTimeKind.Unspecified), 4, 1, 2, false, new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(9281) },
-                    { 6, new DateTime(2022, 9, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, 2, false, new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(9290) },
-                    { 4, new DateTime(2022, 9, 16, 10, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, 3, false, new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(9284) },
-                    { 5, new DateTime(2022, 9, 17, 10, 0, 0, 0, DateTimeKind.Unspecified), 5, 1, 3, false, new DateTime(2022, 9, 11, 14, 1, 12, 466, DateTimeKind.Utc).AddTicks(9287) }
+                    { 1, new DateTime(2022, 9, 13, 10, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, 1, false, new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(8454) },
+                    { 7, new DateTime(2022, 9, 19, 10, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, 1, false, new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(8629) },
+                    { 2, new DateTime(2022, 9, 14, 10, 0, 0, 0, DateTimeKind.Unspecified), 3, 1, 2, false, new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(8610) },
+                    { 3, new DateTime(2022, 9, 15, 10, 0, 0, 0, DateTimeKind.Unspecified), 4, 1, 2, false, new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(8615) },
+                    { 6, new DateTime(2022, 9, 18, 10, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, 2, false, new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(8625) },
+                    { 4, new DateTime(2022, 9, 16, 10, 0, 0, 0, DateTimeKind.Unspecified), 1, 1, 3, false, new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(8618) },
+                    { 5, new DateTime(2022, 9, 17, 10, 0, 0, 0, DateTimeKind.Unspecified), 5, 1, 3, false, new DateTime(2022, 9, 12, 15, 0, 8, 743, DateTimeKind.Utc).AddTicks(8622) }
                 });
 
             migrationBuilder.CreateIndex(

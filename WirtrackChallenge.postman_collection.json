@@ -52,6 +52,60 @@
 				"method": "GET",
 				"header": [],
 				"url": {
+					"raw": "https://localhost:44385/api/cities/id?id=1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"cities",
+						"id"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetWeatherForCityId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44385/api/cities/weather?id=1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"cities",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateWeatherConditions",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
 					"raw": "https://localhost:44385/api/cities",
 					"protocol": "https",
 					"host": [

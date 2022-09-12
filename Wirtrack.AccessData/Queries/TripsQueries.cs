@@ -50,6 +50,7 @@ namespace Wirtrack.AccessData.Queries
                                    t.DateTrip,
                                    Destination = (string)c.Name,
                                    Vehicle = (string)v.Model,
+                                   WeatherCondition = (string)c.WeatherCondition,
                                    t.IdStatus
                                }).ToListAsync();
 
@@ -62,7 +63,8 @@ namespace Wirtrack.AccessData.Queries
                     DateTrip = elem.DateTrip,
                     Destination = elem.Destination,
                     IdStatus = elem.IdStatus,
-                    Vehicle = elem.Vehicle
+                    Vehicle = elem.Vehicle,
+                    WeatherConditions = elem.WeatherCondition
                 };
 
                 tripsJoinedDTO.Add(trip);

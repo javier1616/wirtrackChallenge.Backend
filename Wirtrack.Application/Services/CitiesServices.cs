@@ -14,11 +14,13 @@ namespace Wirtrack.Application.Services
 
         private readonly IGenericsRepository _repository;
         private readonly ICitiesQueries _citiesQueries;
+        private readonly IOpenWeathermapServices _openWeathermapServices;
 
-        public CitiesServices(IGenericsRepository repository, ICitiesQueries citiesQueries)
+        public CitiesServices(IGenericsRepository repository, ICitiesQueries citiesQueries, IOpenWeathermapServices openWeathermapServices)
         {
             _citiesQueries = citiesQueries;
             _repository = repository;
+            _openWeathermapServices = openWeathermapServices;
         }
 
 
@@ -50,6 +52,15 @@ namespace Wirtrack.Application.Services
             return city;
         }
 
+        public async Task<CitiesWeatherDTO> GetByIdWithWeather(int id)
+        {
+            var city = await _citiesQueries.GetById(id);
+
+            CitiesWeatherDTO cityWeather = _openWeathermapServices.GetWeather(city);
+
+            return cityWeather;
+        }
+
         public async Task<Cities> Insert(CitiesInsertUpdateDTO cityInsertDTO)
         {
 
@@ -73,6 +84,31 @@ namespace Wirtrack.Application.Services
             await _repository.Update(currentCity);
 
             return currentCity;
+        }
+
+        public async Task<bool> UpdateWeatherConditions()
+        {
+            List<Cities> listCities = await this.GetAll();
+
+            if (listCities != null)
+            {
+                foreach (Cities elem in listCities)
+                {
+                    CitiesWeatherDTO cityWeather = new CitiesWeatherDTO();
+                    CitiesInsertUpdateDTO cityUpdate = new CitiesInsertUpdateDTO();
+                    var citiesMapper = new CitiesMapper();
+
+                    cityWeather = await _openWeathermapServices.GetWeatherForCityById(elem.Id);
+
+                    cityUpdate = citiesMapper.UpdateFromCitiesWeatherToCitiesInsertUpdateDTO(cityWeather);
+
+                    var city = citiesMapper.UpdateCitiesFromCitiesInsertUpdateDTO(elem,cityUpdate);
+
+                    await _repository.Update(city);
+                }
+                return true;
+            }
+            return false;
         }
 
     }

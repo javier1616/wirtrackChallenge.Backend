@@ -10,6 +10,8 @@ namespace Wirtrack.Domain.Entities
 
         public DateTime DateTrip { get; set; }
 
+        public string WeatherConditions { get; set; }
+
         public int IdStatus { get; set; }
     }
 }
