@@ -68,6 +68,9 @@ namespace Wirtrack.Application.Services
 
             var city = citiesMapper.FromCitiesInsertUpdateDTOToCities(cityInsertDTO);
 
+            CitiesWeatherDTO cityWeather = _openWeathermapServices.GetWeather(city);
+            city.WeatherCondition = cityWeather.WeatherCondition;
+
             await _repository.Add(city);
 
             return city;

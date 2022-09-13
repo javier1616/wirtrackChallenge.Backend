@@ -21,7 +21,7 @@ namespace Wirtrack.AccessData.Queries
         public async Task<List<Trips>> GetAll()
         {
 
-            var trips = await _context.Set<Trips>().ToListAsync();
+            var trips = await _context.Set<Trips>().Where(t => t.IsDeleted==false).ToListAsync();
 
             return trips;
         }
@@ -51,8 +51,11 @@ namespace Wirtrack.AccessData.Queries
                                    Destination = (string)c.Name,
                                    Vehicle = (string)v.Model,
                                    WeatherCondition = (string)c.WeatherCondition,
-                                   t.IdStatus
-                               }).ToListAsync();
+                                   VehicleType = (string)v.Type,
+                                   CarLicense = (string)v.CarLicense,
+                                   t.IdStatus,
+                                   t.IsDeleted
+                               }).Where(t => t.IsDeleted == false).ToListAsync();
 
 
             foreach (var elem in tripsJoined)
@@ -64,14 +67,15 @@ namespace Wirtrack.AccessData.Queries
                     Destination = elem.Destination,
                     IdStatus = elem.IdStatus,
                     Vehicle = elem.Vehicle,
-                    WeatherConditions = elem.WeatherCondition
+                    WeatherConditions = elem.WeatherCondition,
+                    VehicleType = elem.VehicleType,
+                    CarLicense = elem.CarLicense
                 };
 
                 tripsJoinedDTO.Add(trip);
             }
                                  
             return tripsJoinedDTO;
-
         }
 
     }
