@@ -39,7 +39,8 @@ namespace Wirtrack.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPost("create")]
+       // [HttpPut("create")]
         public async Task<IActionResult> CreateVehicle([FromBody] VehiclesInsertUpdateDTO vehicleCreateDTO)
         {
             try

@@ -26,7 +26,9 @@ namespace Wirtrack.Application.Services
         {
             try
             {
-                await _repository.Remove(trip);
+                trip.IsDeleted = true;
+                await _repository.Update(trip);
+                //await _repository.Remove(trip);
                 return true;
             }
             catch (System.Exception)

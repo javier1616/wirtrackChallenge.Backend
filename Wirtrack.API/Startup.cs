@@ -33,9 +33,12 @@ namespace Wirtrack.API
 
             services.AddTransient<IGenericsRepository, GenericsRepository>();
             services.AddTransient<ITripsServices, TripsServices>();
+            services.AddTransient<ITripsQueries, TripsQueries>();
             services.AddTransient<ICitiesServices, CitiesServices>();
             services.AddTransient<ICitiesQueries, CitiesQueries>();
-            services.AddTransient<ITripsQueries, TripsQueries>();
+            services.AddTransient<IVehiclesServices, VehiclesServices>();
+            services.AddTransient<IVehiclesQueries, VehiclesQueries>();
+            
             services.AddTransient<IOpenWeathermapServices, OpenWeathermapServices>();
 
             services.AddCors(c => c.AddDefaultPolicy(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));

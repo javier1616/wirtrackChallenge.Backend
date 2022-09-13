@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "GetTrips",
+			"name": "GetAllTrips",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -20,6 +20,46 @@
 					"path": [
 						"api",
 						"trips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllVehicles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44385/api/vehicles",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllCities",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44385/api/cities",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"cities"
 					]
 				}
 			},
@@ -47,7 +87,7 @@
 			"response": []
 		},
 		{
-			"name": "GetCities",
+			"name": "GetCitiById",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -115,6 +155,93 @@
 					"path": [
 						"api",
 						"cities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertVehicle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Type\":\"car\",\r\n    \"CarLicense\":\"UOU628\",\r\n    \"Model\":\"Renault 12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44385/api/vehicles",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertCity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\":\"Veronica\",\r\n    \"CountryCode\":\"AR\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44385/api/cities",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"cities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertTrip",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\":\"Chascomus\",\r\n    \"CountryCode\":\"AR\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44385/api/trips",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44385",
+					"path": [
+						"api",
+						"trips"
 					]
 				}
 			},
