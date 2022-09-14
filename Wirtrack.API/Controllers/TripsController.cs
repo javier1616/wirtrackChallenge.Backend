@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Threading.Tasks;
 using Wirtrack.Application.Interfaces;
@@ -14,6 +15,28 @@ namespace Wirtrack.Controllers
         public TripsController(ITripsServices service)
         {
             _service = service;
+        }
+
+        [HttpGet("id")]
+        public async Task<IActionResult> GetTripById([FromQuery(Name = "id")]int id)
+        {
+            try
+            {
+                var test = await _service.GetById(id);
+
+                if (test != null)
+                {
+                    return Ok(test);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception err)
+            {
+                throw new Exception(err.Message);
+            }
         }
 
         [HttpGet]
@@ -39,6 +62,7 @@ namespace Wirtrack.Controllers
 
         }
 
+
         [HttpPost]
         public async Task<IActionResult> CreateTrip([FromBody] TripsInsertUpdateDTO tripCreateDTO)
         {
@@ -62,7 +86,13 @@ namespace Wirtrack.Controllers
                 if (trip != null)
                 {
                     var flag = await _service.Delete(trip);
-                    return Ok(flag);
+
+                    //string jsonstr = "{ \"result\" : \""+flag.ToString()+"\"}";
+
+                    //JObject json = JObject.Parse(jsonstr);
+
+                    return Ok(trip);
+                    //return Ok(flag);
                 }
                 else
                 {
@@ -76,8 +106,8 @@ namespace Wirtrack.Controllers
 
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateTrip([FromRoute] int id, [FromBody] TripsInsertUpdateDTO tripUpdateDTO)
+        [HttpPut("id")]
+        public async Task<IActionResult> UpdateTrip([FromQuery(Name = "id")] int id, [FromBody] TripsInsertUpdateDTO tripUpdateDTO)
         {
             try
             {
@@ -86,28 +116,6 @@ namespace Wirtrack.Controllers
                 {
                     var flag = await _service.Update(id, tripUpdateDTO);
                     return Ok(flag);
-                }
-                else
-                {
-                    return NotFound();
-                }
-            }
-            catch (Exception err)
-            {
-                throw new Exception(err.Message);
-            }
-        }
-
-        [HttpGet("id")]
-        public async Task<IActionResult> GetTripById([FromQuery(Name = "id")] int id)
-        {
-            try
-            {
-                var test = await _service.GetById(id);
-
-                if (test != null)
-                {
-                    return Ok(test);
                 }
                 else
                 {
