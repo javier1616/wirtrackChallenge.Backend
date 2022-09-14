@@ -15,6 +15,7 @@ namespace Wirtrack.Domain.Mapper
                 IdVehicle = tripsInsertDTO.IdVehicle,
                 IdStatus = tripsInsertDTO.IdStatus,
                 IsDeleted = tripsInsertDTO.IsDeleted,
+                DateTrip = tripsInsertDTO.DateTrip,
                 LastModified = DateTime.UtcNow
             };
    
@@ -23,11 +24,11 @@ namespace Wirtrack.Domain.Mapper
 
         public Trips UpdateTripsFromTripsInsertUpdateDTO(Trips trip, TripsInsertUpdateDTO tripsInsertDTO)
         {
-
             trip.IdDestinationCity = tripsInsertDTO.IdCity;
             trip.IdVehicle = tripsInsertDTO.IdVehicle;
             trip.IdStatus = tripsInsertDTO.IdStatus;
             trip.IsDeleted = tripsInsertDTO.IsDeleted;
+            trip.DateTrip = tripsInsertDTO.DateTrip;
             trip.LastModified = DateTime.UtcNow;            
 
             return trip;
